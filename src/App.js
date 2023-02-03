@@ -7,7 +7,7 @@ const App = () => {
   const[perpage,setperpage]=useState([])
   const [showbutton,setshowbutton]=useState(true)
   const [showdetailsid,setshowdetailsid]=useState()
-  useEffect(async ()=>{
+  useEffect(async function F(){
    let res=await axios.get("https://jsonplaceholder.typicode.com/users");
  console.log(res.data);
  setData(res.data)
@@ -49,10 +49,10 @@ const App = () => {
         <thead><strong>City</strong></thead>
         <tr><td>{e.address.city}</td></tr>
       </table>
-       <button  className='show' onClick={()=>{changebutton(e.id)}}> {showbutton==true ? "view details":"hide details"}</button>
+       <button  className='show' onClick={()=>{changebutton(e.id)}}> {showbutton===true ? "view details":"hide details"}</button>
        <br/>
        </div>
-        {showdetailsid==e.id && <div className='infodiv'>
+        {showdetailsid===e.id && <div className='infodiv'>
         <strong>Description:</strong>
         <p>The React. js framework is an open-source JavaScript framework and library developed by Facebook. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript.</p>
         <div className='tablediv'>
